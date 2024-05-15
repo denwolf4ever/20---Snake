@@ -10,6 +10,7 @@ ASnakeBase::ASnakeBase()
 	PrimaryActorTick.bCanEverTick = true;
 	ElementSize = 220;
 	MovementSpeed = 0.25f;
+	//MovementBlockerOff = 1;
 	LastMoveDirection = EMovementDirection::DOWN;
 
 }
@@ -75,6 +76,7 @@ void ASnakeBase::Move()
 		break;
 	}
 	//AddActorWorldOffset(MovementVector);
+	MovementBlockerOff = 0;
 	for (int i = SnakeElements.Num() -1; i >0; i--)
 	{
 		auto CurrentElement = SnakeElements[i];
@@ -83,6 +85,7 @@ void ASnakeBase::Move()
 		CurrentElement->SetActorLocation(PrevLocation);
 
 	}
+	MovementBlockerOff = 1;
 
 	SnakeElements[0]->AddActorWorldOffset(MovementVector);
 }

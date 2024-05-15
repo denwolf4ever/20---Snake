@@ -35,6 +35,9 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	float MovementSpeed;
 
+	UPROPERTY(EditDefaultsOnly)
+	bool MovementBlockerOff;
+
 	UPROPERTY()
 	TArray<ASnakeElementBase*> SnakeElements;
 	UPROPERTY()

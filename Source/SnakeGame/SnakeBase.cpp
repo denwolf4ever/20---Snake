@@ -10,7 +10,7 @@ ASnakeBase::ASnakeBase()
 	PrimaryActorTick.bCanEverTick = true;
 	ElementSize = 220;
 	MovementSpeed = 0.25f;
-	//MovementBlockerOff = 1;
+	MovementBlockerOff = 1;
 	LastMoveDirection = EMovementDirection::DOWN;
 
 }
@@ -85,8 +85,9 @@ void ASnakeBase::Move()
 		CurrentElement->SetActorLocation(PrevLocation);
 
 	}
-	MovementBlockerOff = 1;
+	
 
 	SnakeElements[0]->AddActorWorldOffset(MovementVector);
+	MovementBlockerOff = 1;
 }
 
